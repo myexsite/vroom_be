@@ -22,9 +22,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('login', 'UserController@index');
+Route::post('signup', 'UserController@signup');
+Route::post('reset-password', 'ResetPasswordController@send_email');
+Route::post('change-password', 'ResetPasswordController@change_password');
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('users', 'UserController@users');
+    Route::apiResources([
+        'user-details' => 'UserDetailsController',
+    ]);
 });
 
 

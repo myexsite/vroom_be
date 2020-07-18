@@ -18,16 +18,6 @@ class UserDetailsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,7 +25,11 @@ class UserDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_details = UserDetails::create($request->all());
+        return response()->json(['user_details' => $user_details]);
+        // return response(
+        //    [ 'message' => ['from store function'], 200]
+        // );
     }
 
     /**
@@ -45,17 +39,6 @@ class UserDetailsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(UserDetails $userDetails)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\UserDetails  $userDetails
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UserDetails $userDetails)
     {
         //
     }
